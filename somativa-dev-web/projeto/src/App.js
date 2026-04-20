@@ -1,43 +1,39 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
 
-const Painel = () => {
-  return (
-    <div className="painel">
-      0.75
-    </div>
-  )
-}
+class App extends Component{
 
-const Botao = (props) => {
-  return (
-    <div className={props.tipo}>
-      {props.digito}
-    </div>
-  )
-}
+  constructor(props){
+    super(props);
+    this.state = {
+      contador: 0
+    }
+    this.aumentar = this.aumentar.bind(this);
+    this.diminuir = this.diminuir.bind(this);
+  }
 
- 
-function App() {
-  return (
-    <div className="painel-botoes">
-      <Painel/>
-      <Botao tipo="botao-ac" digito="AC" />
-      <Botao tipo="botao-operacao" digito="/" />
-      <Botao tipo="botao-numero" digito="7" />
-      <Botao tipo="botao-numero" digito="8" />
-      <Botao tipo="botao-numero" digito="9" />
-      <Botao tipo="botao-operacao" digito="*" />
-      <Botao tipo="botao-numero" digito="4" />
-      <Botao tipo="botao-numero" digito="5" />
-      <Botao tipo="botao-numero" digito="6" />
-      <Botao tipo="botao-operacao" digito="-" />
-      <Botao tipo="botao-numero" digito="1" />
-      <Botao tipo="botao-numero" digito="2" />
-      <Botao tipo="botao-numero" digito="3" />
-      <Botao tipo="botao-operacao" digito="+" />
-    </div>
-  );
+  aumentar(){
+    let state = this.state;
+    state.contador += 1;
+    this.setState(state);
+  }
+
+  diminuir(){
+    let state = this.state;
+    state.contador -= 1;
+    this.setState(state);
+  }
+
+  render(){
+    return(
+      <div>
+        <button onClick={this.aumentar}> Adicionar </button> &nbsp;
+        <button onClick={this.diminuir}> Subtrair </button> <br/><br/>
+        Valor: {this.state.contador}
+      </div>
+    )
+  }
+
 }
 
 export default App;
