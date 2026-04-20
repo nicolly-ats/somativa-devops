@@ -1,39 +1,42 @@
-import React, {Component} from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
-class App extends Component{
+function App() {
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const [mensagem, setMensagem] = useState('');
 
-  constructor(props){
-    super(props);
-    this.state = {
-      contador: 0
+  const validarLogin = () => {
+    if (email === 'nicolly.antunes@pucpr.edu.br' && senha === '123456') {
+      setMensagem('Acessado com sucesso!');
+    } else {
+      setMensagem('Usuário ou senha incorretos!');
     }
-    this.aumentar = this.aumentar.bind(this);
-    this.diminuir = this.diminuir.bind(this);
-  }
+  };
 
-  aumentar(){
-    let state = this.state;
-    state.contador += 1;
-    this.setState(state);
-  }
+  return (
+    <div className="container">
+      <h2>Login</h2>
 
-  diminuir(){
-    let state = this.state;
-    state.contador -= 1;
-    this.setState(state);
-  }
+      <input
+        type="email"
+        placeholder="E-mail"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
 
-  render(){
-    return(
-      <div>
-        <button onClick={this.aumentar}> Adicionar </button> &nbsp;
-        <button onClick={this.diminuir}> Subtrair </button> <br/><br/>
-        Valor: {this.state.contador}
-      </div>
-    )
-  }
+      <input
+        type="password"
+        placeholder="Senha"
+        value={senha}
+        onChange={(e) => setSenha(e.target.value)}
+      />
 
+      <button onClick={validarLogin}>Acessar</button>
+
+      <p>{mensagem}</p>
+    </div>
+  );
 }
 
 export default App;
