@@ -10,8 +10,8 @@ jobs:
 
     defaults:
       run:
-        working-directory: somativa-dev-web
-
+        working-directory: somativa-dev-web/projeto
+        
     steps:
       - name: Checkout
         uses: actions/checkout@v4
