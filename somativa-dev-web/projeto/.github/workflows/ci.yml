@@ -2,7 +2,7 @@ name: CI - React App
 
 on:
   push:
-    branches: [ "feature/login" ]
+    branches: [ "feature/tela-login" ]
   pull_request:
     branches: [ "main" ]
 
