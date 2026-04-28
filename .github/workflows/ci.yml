@@ -1,0 +1,37 @@
+name: CI - React App
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: somativa-dev-web/projeto
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install
+        run: npm install
+
+      - name: Rodar testes
+        run: npm test -- --watchAll=false
+
+      - name: Build
+        run: npm run build
+      
+      - name: Enviar alerta para Discord
+        if: always()
+        run: |
+          curl -H "Content-Type: application/json" \
+          -d "{\"content\": \"🚀 Workflow executado!\nStatus: ${{ job.status }}\nRepo: ${{ github.repository }}\nBranch: ${{ github.ref_name }}\"}" \
+          ${{ secrets.DISCORD_WEBHOOK }}
+      
