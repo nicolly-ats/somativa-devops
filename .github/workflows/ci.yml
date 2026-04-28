@@ -24,3 +24,10 @@ jobs:
 
       - name: Build
         run: npm run build
+      
+      - name: Enviar alerta para Discord
+        if: always()
+        run: |
+          curl -H "Content-Type: application/json" \
+          -d "{\"content\": \"🚀 Workflow executado!\nStatus: ${{ job.status }}\nRepo: ${{ github.repository }}\nBranch: ${{ github.ref_name }}\"}" \
+          ${{ secrets.DISCORD_WEBHOOK }}
