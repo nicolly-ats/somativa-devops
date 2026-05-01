@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f5f6fa;
+}
+
+/* Container */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Card */
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 320px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Título */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Inputs */
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Botões */
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #6c5ce7;
+  color: white;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+button:hover {
+  background: #5a4bd1;
+}
+
+/* Botão secundário */
+.btn-secondary {
+  background: #636e72;
+}
+
+.btn-secondary:hover {
+  background: #4b5558;
+}
+
+/* Botão sair */
+.btn-danger {
+  background: #d63031;
+}
+
+.btn-danger:hover {
+  background: #b02525;
+}
+
+/* Mensagens */
+.success {
+  color: green;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Link */
+.link {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  color: #6c5ce7;
+  cursor: pointer;
+  text-decoration: none;
+}
